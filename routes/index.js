@@ -19,7 +19,7 @@ var sendAndSleep = function (response, counter) {
   if (counter > 10) {
     response.end();
   } else {
-    response.write(" ;i=" + counter);
+    response.write(`;i=` + counter);
     counter++;
     setTimeout(function () {
       sendAndSleep(response, counter);
