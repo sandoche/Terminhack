@@ -2,8 +2,7 @@ import config from '../../../config'
 import sleep from '../../../utility/sleep'
 
 const line = async (response, message) => {
-  response.write(`
-`)
+  response.write(message)
   sleep(config.defaultBreakAfterCommand)
 }
 
