@@ -1,6 +1,6 @@
 - type: char
   value: host $target
-  prefix: true
+  prefix: default
 - type: line
   value: |
     $target has address 52.73.153.209
@@ -8,36 +8,37 @@
     $target has IPv6 address 2604:a880:400:d0::1741:7001 
     $target has IPv6 address 2604:a880:400:d0::182c:1001
 - type: linebreak
-  prefix: true
+  prefix: default
 - type: char
   value: nmap -sT -p- -Pn $target
-  prefix: true
+  prefix: default
 - type: line
   value: |
     xxx
 - type: linebreak
-  prefix: true
+  prefix: default
 - type: char
   value: nmap --script banner $target
-  prefix: true
+  prefix: default
 - type: line
   value: |
     xxx
 - type: char
   value: nmap --script vuln $target
-  prefix: true
+  prefix: default
 - type: line
   value: |
     xxx
 - type: linebreak
-  prefix: true
+  prefix: default
 - type: char
   value: msfconsole
-  prefix: true
+  prefix: default
 - type: block
   value: '[*] Starting the Metasploit Framework console...'
 - type: pause
   value: 2000
+- type: linebreak
 - type: block
   value: |
     ⠀     .:okOOOkdc'           'cdkOOOko:.
@@ -65,3 +66,6 @@
     + -- --=[ 2097 exploits - 1128 auxiliary - 356 post       ]
     + -- --=[ 592 payloads - 45 encoders - 10 nops            ]
     + -- --=[ 7 evasion                                       ]
+- type: char
+  value: search xxx
+  prefix: msf6 >

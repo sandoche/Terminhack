@@ -20,8 +20,9 @@ const returnResponse = async (response, hackResponse) => {
 
   for (const command of hackResponse) {
     try {
-      if (command.prefix === true) {
-        handlers.prefix(response)
+      if (command.prefix) {
+        const prefixValue = command.prefix === 'default' ? config.userPrefix : command.prefix
+        handlers.prefix(response, prefixValue)
       }
       await command.handle(response, command.value)
     } catch (e) { }

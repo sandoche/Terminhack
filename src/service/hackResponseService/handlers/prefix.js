@@ -1,7 +1,5 @@
-import config from '../../../config'
-
-const prefix = async (response) => {
-  response.write(config.userPrefix)
+const prefix = async (response, prefixValue) => {
+  response.write(prefixValue)
   response.write(' ')
 }
 
