@@ -20,11 +20,8 @@ const returnResponse = (response, hackResponse) => {
 
   for (const command of hackResponse) {
     try {
-      console.log(command)
       command.handle(response, command.value)
-    } catch (e) {
-      console.log(e)
-    }
+    } catch (e) {}
   }
 
   response.end()
