@@ -1,4 +1,4 @@
-const line = (response, message) => {
+const line = async (response, message) => {
   response.write(message)
 }
 

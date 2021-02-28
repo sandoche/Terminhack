@@ -14,13 +14,13 @@ const setUpHandlers = (hackResponse) => {
   return responseWithHandlers
 }
 
-const returnResponse = (response, hackResponse) => {
+const returnResponse = async (response, hackResponse) => {
   response.setHeader('Content-Type', 'text/html; charset=utf-8')
   response.setHeader('Transfer-Encoding', 'chunked')
 
   for (const command of hackResponse) {
     try {
-      command.handle(response, command.value)
+      await command.handle(response, command.value)
     } catch (e) { }
   }
 

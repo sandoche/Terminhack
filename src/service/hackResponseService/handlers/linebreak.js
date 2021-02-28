@@ -1,4 +1,4 @@
-const linebreak = (response) => {
+const linebreak = async (response) => {
   response.write('/n')
 }
 

@@ -1,4 +1,4 @@
-const pause = (response, value) => {
+const pause = async (response, value) => {
   response.write('')
 }
 
