@@ -5,7 +5,7 @@ import hackResponseService from '../service/hackResponseService'
 
 const router = express.Router()
 
-router.get('/', function (req, res, next) {
+router.get('/:hack?/:target?', function (req, res, next) {
   const hackId = req.params.hack || config.defaultHackId
   const targetHost = req.params.target || config.defaultTargetHost
   const hacks = config.hacksMap
