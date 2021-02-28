@@ -1,5 +1,6 @@
 - type: char
   value: host $target
+  prefix: true
 - type: line
   value: |
     $target has address 52.73.153.209
@@ -7,8 +8,10 @@
     $target has IPv6 address 2604:a880:400:d0::1741:7001 
     $target has IPv6 address 2604:a880:400:d0::182c:1001
 - type: linebreak
+  prefix: true
 - type: char
   value: 'nmap -sT -p- -Pn 192.168.10.1-254'
+  prefix: true
 - type: pause
   value: 100
 - type: block

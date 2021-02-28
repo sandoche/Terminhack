@@ -20,6 +20,9 @@ const returnResponse = async (response, hackResponse) => {
 
   for (const command of hackResponse) {
     try {
+      if (command.prefix === true) {
+        handlers.prefix(response)
+      }
       await command.handle(response, command.value)
     } catch (e) { }
   }

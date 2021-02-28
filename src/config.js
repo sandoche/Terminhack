@@ -8,7 +8,8 @@ const config = {
   hacksMap,
   defaultHandler: 'block',
   typingInterval: 200,
-  defaultBreakAfterCommand: 1000
+  defaultBreakAfterCommand: 1000,
+  userPrefix: 'root@kali:~$'
 }
 
 export default config
