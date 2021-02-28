@@ -7,7 +7,8 @@ const config = {
   defaultHackId: 'hack',
   hacksMap,
   defaultHandler: 'block',
-  typingInterval: 200
+  typingInterval: 200,
+  defaultBreakAfterCommand: 1000
 }
 
 export default config

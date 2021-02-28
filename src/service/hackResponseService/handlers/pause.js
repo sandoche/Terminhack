@@ -1,5 +1,7 @@
+import sleep from '../../../utility/sleep'
+
 const pause = async (response, value) => {
-  response.write('')
+  await sleep(value)
 }
 
 export default pause

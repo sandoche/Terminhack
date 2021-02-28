@@ -6,6 +6,9 @@ const char = async (response, message) => {
     response.write(char)
     await sleep(Math.floor(Math.random() * config.typingInterval) + 50)
   }
+  response.write(`
+`)
+  await sleep(config.defaultBreakAfterCommand)
 }
 
 export default char
