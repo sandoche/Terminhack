@@ -1,5 +1,6 @@
 const linebreak = async (response) => {
-  response.write('/n')
+  response.write(`
+`)
 }
 
 export default linebreak

@@ -6,7 +6,8 @@ const config = {
   defaultTargetHost: 'www.sandoche.com',
   defaultHackId: 'hack',
   hacksMap,
-  defaultHandler: 'block'
+  defaultHandler: 'block',
+  typingInterval: 200
 }
 
 export default config
