@@ -9,7 +9,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/dev -e js,twig --exec babel-node --presets es2015,env",
     "transpile": "babel --presets es2015,env -d ./build ./src -s",
-    "copy-assets": "cp -r ./src/views ./build && cp -r ./src/public ./build && cp ./src/data ./build",
+    "copy-assets": "cp -r ./src/views ./build && cp -r ./src/public ./build && cp -r ./src/data ./build",
     "clean": "rm -rf build && mkdir build",
     "build": "npm run clean && npm run transpile && npm run copy-assets",
     "lint": "eslint \"**/*.{js,ts}\" --quiet --fix"
