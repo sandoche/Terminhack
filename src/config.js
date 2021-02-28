@@ -1,5 +1,6 @@
 const config = {
-  defaultTargetHost: 'www.sandoche.com'
+  defaultTargetHost: 'www.sandoche.com',
+  defaultHackId: 'hack'
 }
 
 export default config

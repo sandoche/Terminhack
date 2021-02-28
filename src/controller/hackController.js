@@ -1,24 +1,18 @@
 import express from 'express'
+import config from '../config'
+import hacks from '../hacks'
+import hackDataParsingService from '../service/hackDataParsingService'
+import hackResponseService from '../service/hackResponseService'
+
 const router = express.Router()
 
-/* GET users listing. */
 router.get('/', function (req, res, next) {
-  res.setHeader('Content-Type', 'text/html; charset=utf-8')
-  res.setHeader('Transfer-Encoding', 'chunked')
-  res.write('Thinking...')
-  sendAndSleep(res, 1)
-})
+  const hackId = req.params.hack || config.defaultHackId
+  const targetHost = req.params.target || config.defaultTargetHost
+  const hackFile = hacks.get(hackId) || hacks.get(config.defaultHackId)
 
-const sendAndSleep = function (response, counter) {
-  if (counter > 10) {
-    response.end()
-  } else {
-    response.write(';i=' + counter)
-    counter++
-    setTimeout(function () {
-      sendAndSleep(response, counter)
-    }, 1000)
-  }
-}
+  const responseData = hackDataParsingService.parse(hackFile, targetHost)
+  hackResponseService.handle(res, responseData)
+})
 
 module.exports = router
