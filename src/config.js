@@ -7,7 +7,7 @@ const config = {
   defaultHackId: 'hack',
   hacksMap,
   defaultHandler: 'block',
-  typingInterval: 200,
+  typingInterval: 70,
   defaultBreakAfterCommand: 1000,
   userPrefix: 'root@kali:~$'
 }
