@@ -14,7 +14,50 @@
   prefix: default
 - type: line
   value: |
-    xxx
+    Nmap scan report for $target
+    Host is up (0.0017s latency).
+    Not shown: 65497 filtered ports
+    PORT      STATE SERVICE
+    21/tcp    open  ftp
+    22/tcp    open  ssh
+    23/tcp    open  telnet
+    25/tcp    open  smtp
+    53/tcp    open  domain
+    80/tcp    open  http
+    110/tcp   open  pop3
+    111/tcp   open  rpcbind
+    119/tcp   open  nntp
+    139/tcp   open  netbios-ssn
+    143/tcp   open  imap
+    445/tcp   open  microsoft-ds
+    465/tcp   open  smtps
+    512/tcp   open  exec
+    513/tcp   open  login
+    514/tcp   open  shell
+    563/tcp   open  snews
+    587/tcp   open  submission
+    993/tcp   open  imaps
+    995/tcp   open  pop3s
+    1099/tcp  open  rmiregistry
+    1524/tcp  open  ingreslock
+    2049/tcp  open  nfs
+    2121/tcp  open  ccproxy-ftp
+    3306/tcp  open  mysql
+    3632/tcp  open  distccd
+    5432/tcp  open  postgresql
+    5900/tcp  open  vnc
+    6000/tcp  open  X11
+    6667/tcp  open  irc
+    6697/tcp  open  ircs-u
+    8009/tcp  open  ajp13
+    8180/tcp  open  unknown
+    8787/tcp  open  msgsrvr
+    34818/tcp open  unknown
+    36509/tcp open  unknown
+    43678/tcp open  unknown
+    56229/tcp open  unknown
+
+    Nmap done: 1 IP address (1 host up) scanned in 2.05 seconds
 - type: linebreak
   prefix: default
 - type: char
@@ -23,7 +66,7 @@
 - type: line
   value: |
     Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-28 19:59 GMT
-    Nmap scan report for 192.168.10.11
+    Nmap scan report for $target
     Host is up (0.0091s latency).
     Not shown: 977 closed ports
     PORT     STATE SERVICE
@@ -49,7 +92,7 @@
     |_banner: root@ubuntu:/#
     2049/tcp open  nfs
     2121/tcp open  ccproxy-ftp
-    |_banner: 220 ProFTPD 1.3.1 Server (Debian) [::ffff:192.168.10.11]
+    |_banner: 220 ProFTPD 1.3.1 Server (Debian) [::ffff:$target]
     3306/tcp open  mysql
     | banner: >\x00\x00\x00\x0A5.0.51a-3ubuntu5\x00\x08\x00\x00\x00BG|]<Qc"\x
     |_00,\xAA\x08\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\...
@@ -72,7 +115,688 @@
   prefix: default
 - type: line
   value: |
-    xxx
+    Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-28 19:59 GMT
+    Pre-scan script results:
+    | broadcast-avahi-dos:
+    |   Discovered hosts:
+    |     224.0.0.251
+    |   After NULL UDP avahi packet DoS (CVE-2011-1002).
+    |   Hosts that seem down (vulnerable):
+    |_    224.0.0.251
+    Nmap scan report for $target
+    Host is up (0.017s latency).
+    Not shown: 977 closed ports
+    PORT     STATE SERVICE
+    21/tcp   open  ftp
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    | ftp-vsftpd-backdoor:
+    |   VULNERABLE:
+    |   vsFTPd version 2.3.4 backdoor
+    |     State: VULNERABLE (Exploitable)
+    |     IDs:  BID:48539  CVE:CVE-2011-2523
+    |       vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.
+    |     Disclosure date: 2011-07-03
+    |     Exploit results:
+    |       Shell command: id
+    |       Results: uid=0(root) gid=0(root)
+    |     References:
+    |       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523
+    |       http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html
+    |       https://www.securityfocus.com/bid/48539
+    |_      https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb
+    |_sslv2-drown:
+    22/tcp   open  ssh
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    23/tcp   open  telnet
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    25/tcp   open  smtp
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    | smtp-vuln-cve2010-4344:
+    |_  The SMTP server is not Exim: NOT VULNERABLE
+    | ssl-dh-params:
+    |   VULNERABLE:
+    |   Diffie-Hellman Key Exchange Insufficient Group Strength
+    |     State: VULNERABLE
+    |       Transport Layer Security (TLS) services that use Diffie-Hellman groups
+    |       of insufficient strength, especially those using one of a few commonly
+    |       shared groups, may be susceptible to passive eavesdropping attacks.
+    |     Check results:
+    |       WEAK DH GROUP 1
+    |             Cipher Suite: TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA
+    |             Modulus Type: Safe prime
+    |             Modulus Source: Unknown/Custom-generated
+    |             Modulus Length: 1024
+    |             Generator Length: 8
+    |             Public Key Length: 1024
+    |     References:
+    |_      https://weakdh.org
+    | ssl-poodle:
+    |   VULNERABLE:
+    |   SSL POODLE information leak
+    |     State: VULNERABLE
+    |     IDs:  BID:70574  CVE:CVE-2014-3566
+    |           The SSL protocol 3.0, as used in OpenSSL through 1.0.1i and other
+    |           products, uses nondeterministic CBC padding, which makes it easier
+    |           for man-in-the-middle attackers to obtain cleartext data via a
+    |           padding-oracle attack, aka the "POODLE" issue.
+    |     Disclosure date: 2014-10-14
+    |     Check results:
+    |       TLS_RSA_WITH_AES_128_CBC_SHA
+    |     References:
+    |       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566
+    |       https://www.securityfocus.com/bid/70574
+    |       https://www.openssl.org/~bodo/ssl-poodle.pdf
+    |_      https://www.imperialviolet.org/2014/10/14/poodle.html
+    |_sslv2-drown:
+    53/tcp   open  domain
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    80/tcp   open  http
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    | http-csrf:
+    | Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=$target
+    |   Found the following possible CSRF vulnerabilities:
+    |
+    |     Path: http://$target:80/dvwa/
+    |     Form id:
+    |     Form action: login.php
+    |
+    |     Path: http://$target:80/mutillidae/?page=user-info.php
+    |     Form id: id-bad-cred-tr
+    |     Form action: ./index.php?page=user-info.php
+    |
+    |     Path: http://$target:80/mutillidae/index.php?page=view-someones-blog.php
+    |     Form id: id-bad-blog-entry-tr
+    |     Form action: index.php?page=view-someones-blog.php
+    |
+    |     Path: http://$target:80/mutillidae/?page=view-someones-blog.php
+    |     Form id: id-bad-blog-entry-tr
+    |     Form action: index.php?page=view-someones-blog.php
+    |
+    |     Path: http://$target:80/mutillidae/index.php?page=user-poll.php
+    |     Form id: idpollform
+    |     Form action: index.php
+    |
+    |     Path: http://$target:80/mutillidae/index.php?page=user-info.php
+    |     Form id: id-bad-cred-tr
+    |_    Form action: ./index.php?page=user-info.php
+    |_http-dombased-xss: Couldn't find any DOM based XSS.
+    | http-enum:
+    |   /tikiwiki/: Tikiwiki
+    |   /test/: Test page
+    |   /phpinfo.php: Possible information file
+    |_  /phpMyAdmin/: phpMyAdmin
+    | http-fileupload-exploiter:
+    |
+    |_    Couldn't find a file-type field.
+    | http-slowloris-check:
+    |   VULNERABLE:
+    |   Slowloris DOS attack
+    |     State: LIKELY VULNERABLE
+    |     IDs:  CVE:CVE-2007-6750
+    |       Slowloris tries to keep many connections to the target web server open and hold
+    |       them open as long as possible.  It accomplishes this by opening connections to
+    |       the target web server and sending a partial request. By doing so, it starves
+    |       the http server's resources causing Denial Of Service.
+    |
+    |     Disclosure date: 2009-09-17
+    |     References:
+    |       http://ha.ckers.org/slowloris/
+    |_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+    | http-sql-injection:
+    |   Possible sqli for queries:
+    |     http://$target:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?username=anonymous&page=password-generator.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?do=toggle-security%27%20OR%20sqlspider&page=home.php
+    |     http://$target:80/mutillidae/index.php?page=php-errors.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fvulnerabilities.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=notes.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=usage-instructions.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?do=toggle-hints%27%20OR%20sqlspider&page=home.php
+    |     http://$target:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/dav/?C=D%3bO%3dA%27%20OR%20sqlspider
+    |     http://$target:80/dav/?C=N%3bO%3dD%27%20OR%20sqlspider
+    |     http://$target:80/dav/?C=S%3bO%3dA%27%20OR%20sqlspider
+    |     http://$target:80/dav/?C=M%3bO%3dA%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?username=anonymous&page=password-generator.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fvulnerabilities.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=register.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?username=anonymous&page=password-generator.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?do=toggle-security%27%20OR%20sqlspider&page=home.php
+    |     http://$target:80/mutillidae/index.php?page=php-errors.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fvulnerabilities.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=notes.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=usage-instructions.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?do=toggle-hints%27%20OR%20sqlspider&page=home.php
+    |     http://$target:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?username=anonymous&page=password-generator.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fvulnerabilities.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?username=anonymous&page=password-generator.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fvulnerabilities.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?username=anonymous&page=password-generator.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fvulnerabilities.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?username=anonymous&page=password-generator.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fvulnerabilities.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?username=anonymous&page=password-generator.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fvulnerabilities.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?username=anonymous&page=password-generator.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fvulnerabilities.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=register.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=credits.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=documentation%2fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider
+    |     http://$target:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider
+    |   Possible sqli for forms:
+    |     Form at path: /mutillidae/, form's action: ./index.php?page=user-info.php. Fields that might be vulnerable:
+    |       username
+    |     Form at path: /mutillidae/index.php, form's action: index.php. Fields that might be vulnerable:
+    |       choice
+    |       choice
+    |       choice
+    |       choice
+    |       choice
+    |       choice
+    |       choice
+    |       choice
+    |       choice
+    |       choice
+    |       choice
+    |       choice
+    |       initials
+    |     Form at path: /mutillidae/index.php, form's action: ./index.php?page=user-info.php. Fields that might be vulnerable:
+    |_      username
+    |_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+    |_http-trace: TRACE is enabled
+    |_http-vuln-cve2017-1001000: ERROR: Script execution failed (use -d to debug)
+    111/tcp  open  rpcbind
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    139/tcp  open  netbios-ssn
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    |_smb-vuln-webexec: ERROR: Script execution failed (use -d to debug)
+    445/tcp  open  microsoft-ds
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    |_smb-vuln-webexec: ERROR: Script execution failed (use -d to debug)
+    512/tcp  open  exec
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    513/tcp  open  login
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    514/tcp  open  shell
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    1099/tcp open  rmiregistry
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    | rmi-vuln-classloader:
+    |   VULNERABLE:
+    |   RMI registry default configuration remote code execution vulnerability
+    |     State: VULNERABLE
+    |       Default configuration of RMI registry allows loading classes from remote URLs which can lead to remote code execution.
+    |
+    |     References:
+    |_      https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/misc/java_rmi_server.rb
+    1524/tcp open  ingreslock
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    2049/tcp open  nfs
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    2121/tcp open  ccproxy-ftp
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    3306/tcp open  mysql
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    5432/tcp open  postgresql
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    | ssl-ccs-injection:
+    |   VULNERABLE:
+    |   SSL/TLS MITM vulnerability (CCS Injection)
+    |     State: VULNERABLE
+    |     Risk factor: High
+    |       OpenSSL before 0.9.8za, 1.0.0 before 1.0.0m, and 1.0.1 before 1.0.1h
+    |       does not properly restrict processing of ChangeCipherSpec messages,
+    |       which allows man-in-the-middle attackers to trigger use of a zero
+    |       length master key in certain OpenSSL-to-OpenSSL communications, and
+    |       consequently hijack sessions or obtain sensitive information, via
+    |       a crafted TLS handshake, aka the "CCS Injection" vulnerability.
+    |
+    |     References:
+    |       http://www.cvedetails.com/cve/2014-0224
+    |       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224
+    |_      http://www.openssl.org/news/secadv_20140605.txt
+    | ssl-dh-params:
+    |   VULNERABLE:
+    |   Diffie-Hellman Key Exchange Insufficient Group Strength
+    |     State: VULNERABLE
+    |       Transport Layer Security (TLS) services that use Diffie-Hellman groups
+    |       of insufficient strength, especially those using one of a few commonly
+    |       shared groups, may be susceptible to passive eavesdropping attacks.
+    |     Check results:
+    |       WEAK DH GROUP 1
+    |             Cipher Suite: TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+    |             Modulus Type: Safe prime
+    |             Modulus Source: Unknown/Custom-generated
+    |             Modulus Length: 1024
+    |             Generator Length: 8
+    |             Public Key Length: 1024
+    |     References:
+    |_      https://weakdh.org
+    | ssl-poodle:
+    |   VULNERABLE:
+    |   SSL POODLE information leak
+    |     State: VULNERABLE
+    |     IDs:  BID:70574  CVE:CVE-2014-3566
+    |           The SSL protocol 3.0, as used in OpenSSL through 1.0.1i and other
+    |           products, uses nondeterministic CBC padding, which makes it easier
+    |           for man-in-the-middle attackers to obtain cleartext data via a
+    |           padding-oracle attack, aka the "POODLE" issue.
+    |     Disclosure date: 2014-10-14
+    |     Check results:
+    |       TLS_RSA_WITH_AES_128_CBC_SHA
+    |     References:
+    |       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566
+    |       https://www.securityfocus.com/bid/70574
+    |       https://www.openssl.org/~bodo/ssl-poodle.pdf
+    |_      https://www.imperialviolet.org/2014/10/14/poodle.html
+    |_sslv2-drown:
+    5900/tcp open  vnc
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    |_sslv2-drown:
+    6000/tcp open  X11
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    6667/tcp open  irc
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    |_irc-unrealircd-backdoor: Looks like trojaned version of unrealircd. See http://seclists.org/fulldisclosure/2010/Jun/277
+    8009/tcp open  ajp13
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    8180/tcp open  unknown
+    |_clamav-exec: ERROR: Script execution failed (use -d to debug)
+    | http-cookie-flags:
+    |   /admin/:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/index.html:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/login.html:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/admin.html:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/account.html:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/admin_login.html:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/home.html:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/admin-login.html:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/adminLogin.html:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/controlpanel.html:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/cp.html:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/index.jsp:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/login.jsp:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/admin.jsp:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/home.jsp:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/controlpanel.jsp:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/admin-login.jsp:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/cp.jsp:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/account.jsp:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/admin_login.jsp:
+    |     JSESSIONID:
+    |       httponly flag not set
+    |   /admin/adminLogin.jsp:
+    |     JSESSIONID:
+    |_      httponly flag not set
+    | http-enum:
+    |   /admin/: Possible admin folder
+    |   /admin/index.html: Possible admin folder
+    |   /admin/login.html: Possible admin folder
+    |   /admin/admin.html: Possible admin folder
+    |   /admin/account.html: Possible admin folder
+    |   /admin/admin_login.html: Possible admin folder
+    |   /admin/home.html: Possible admin folder
+    |   /admin/admin-login.html: Possible admin folder
+    |   /admin/adminLogin.html: Possible admin folder
+    |   /admin/controlpanel.html: Possible admin folder
+    |   /admin/cp.html: Possible admin folder
+    |   /admin/index.jsp: Possible admin folder
+    |   /admin/login.jsp: Possible admin folder
+    |   /admin/admin.jsp: Possible admin folder
+    |   /admin/home.jsp: Possible admin folder
+    |   /admin/controlpanel.jsp: Possible admin folder
+    |   /admin/admin-login.jsp: Possible admin folder
+    |   /admin/cp.jsp: Possible admin folder
+    |   /admin/account.jsp: Possible admin folder
+    |   /admin/admin_login.jsp: Possible admin folder
+    |   /admin/adminLogin.jsp: Possible admin folder
+    |   /manager/html/upload: Apache Tomcat (401 Unauthorized)
+    |_  /manager/html: Apache Tomcat (401 Unauthorized)
+    MAC Address: 00:15:5D:29:81:0C (Microsoft)
+
+    Host script results:
+    |_smb-double-pulsar-backdoor: ERROR: Script execution failed (use -d to debug)
+    |_smb-vuln-cve-2017-7494: ERROR: Script execution failed (use -d to debug)
+    |_smb-vuln-ms06-025: ERROR: Script execution failed (use -d to debug)
+    |_smb-vuln-ms07-029: ERROR: Script execution failed (use -d to debug)
+    |_smb-vuln-ms08-067: ERROR: Script execution failed (use -d to debug)
+    |_smb-vuln-ms10-054: false
+    |_smb-vuln-ms10-061: false
+    |_smb-vuln-ms17-010: ERROR: Script execution failed (use -d to debug)
+    |_smb-vuln-regsvc-dos: ERROR: Script execution failed (use -d to debug)
+
+    Nmap done: 1 IP address (1 host up) scanned in 562.40 seconds
+
 - type: linebreak
   prefix: default
 - type: char
