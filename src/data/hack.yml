@@ -22,7 +22,51 @@
   prefix: default
 - type: line
   value: |
-    xxx
+    Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-28 19:59 GMT
+    Nmap scan report for 192.168.10.11
+    Host is up (0.0091s latency).
+    Not shown: 977 closed ports
+    PORT     STATE SERVICE
+    21/tcp   open  ftp
+    |_banner: 220 (vsFTPd 2.3.4)
+    22/tcp   open  ssh
+    |_banner: SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1
+    23/tcp   open  telnet
+    |_banner: \xFF\xFD\x18\xFF\xFD \xFF\xFD#\xFF\xFD'
+    25/tcp   open  smtp
+    |_banner: 220 metasploitable.localdomain ESMTP Postfix (Ubuntu)
+    53/tcp   open  domain
+    80/tcp   open  http
+    111/tcp  open  rpcbind
+    139/tcp  open  netbios-ssn
+    445/tcp  open  microsoft-ds
+    512/tcp  open  exec
+    |_banner: \x01Where are you?
+    513/tcp  open  login
+    514/tcp  open  shell
+    1099/tcp open  rmiregistry
+    1524/tcp open  ingreslock
+    |_banner: root@ubuntu:/#
+    2049/tcp open  nfs
+    2121/tcp open  ccproxy-ftp
+    |_banner: 220 ProFTPD 1.3.1 Server (Debian) [::ffff:192.168.10.11]
+    3306/tcp open  mysql
+    | banner: >\x00\x00\x00\x0A5.0.51a-3ubuntu5\x00\x08\x00\x00\x00BG|]<Qc"\x
+    |_00,\xAA\x08\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\...
+    5432/tcp open  postgresql
+    5900/tcp open  vnc
+    |_banner: RFB 003.003
+    6000/tcp open  X11
+    6667/tcp open  irc
+    | banner: :irc.Ubuntu.LAN NOTICE AUTH :*** Looking up your hostna
+    |_me...\x0D\x0A:irc.Ubuntu.LAN NOTICE AUTH :*** Couldn't resol...
+    8009/tcp open  ajp13
+    8180/tcp open  unknown
+    MAC Address: 00:15:5D:29:81:0C (Microsoft)
+
+    Nmap done: 1 IP address (1 host up) scanned in 29.80 seconds
+- type: linebreak
+  prefix: default
 - type: char
   value: nmap --script vuln $target
   prefix: default
@@ -38,6 +82,8 @@
   value: '[*] Starting the Metasploit Framework console...'
 - type: pause
   value: 2000
+- type: linebreak
+- type: linebreak
 - type: linebreak
 - type: block
   value: |
@@ -66,6 +112,12 @@
     + -- --=[ 2097 exploits - 1128 auxiliary - 356 post       ]
     + -- --=[ 592 payloads - 45 encoders - 10 nops            ]
     + -- --=[ 7 evasion                                       ]
+- type: char
+  value: search xxx
+  prefix: msf6 >
+- type: block
+  value: |
+    xxx
 - type: char
   value: search xxx
   prefix: msf6 >
