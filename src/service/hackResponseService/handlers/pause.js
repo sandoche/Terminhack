@@ -1,5 +1,5 @@
 const pause = (response, value) => {
-  response.write(value)
+  response.write('')
 }
 
 export default pause

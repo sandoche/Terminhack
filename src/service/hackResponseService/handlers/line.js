@@ -1,5 +1,5 @@
-const line = (response, value) => {
-
+const line = (response, message) => {
+  response.write(message)
 }
 
 export default line
