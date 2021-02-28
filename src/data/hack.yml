@@ -1,6 +1,6 @@
 - type: char
   value: host $target
-- type: line
+- type: xxxx
   value: '$target has address 52.73.153.209
 $target has address 67.207.80.24
 $target has IPv6 address 2604:a880:400:d0::1741:7001

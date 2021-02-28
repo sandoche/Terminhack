@@ -8,7 +8,7 @@ const handle = (response, hackData) => {
 
 const setUpHandlers = (hackResponse) => {
   const responseWithHandlers = hackResponse.map((item) => {
-    item.handle = config.handlers.includes(item.type) ? handlers[item.type] : config.defaultHandler
+    item.handle = typeof handlers[item.type] === 'function' ? handlers[item.type] : handlers[config.defaultHandler]
     return item
   })
   return responseWithHandlers
@@ -21,7 +21,7 @@ const returnResponse = (response, hackResponse) => {
   for (const command of hackResponse) {
     try {
       command.handle(response, command.value)
-    } catch (e) {}
+    } catch (e) { }
   }
 
   response.end()
