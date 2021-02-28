@@ -837,11 +837,21 @@
     + -- --=[ 592 payloads - 45 encoders - 10 nops            ]
     + -- --=[ 7 evasion                                       ]
 - type: char
-  value: search xxx
+  value: search vsFTPd
   prefix: msf6 >
+- type: linebreak
 - type: block
   value: |
-    xxx
+    Matching Modules
+    ================
+
+      #  Name                                  Disclosure Date  Rank       Check  Description
+      -  ----                                  ---------------  ----       -----  -----------
+      0  exploit/unix/ftp/vsftpd_234_backdoor  2011-07-03       excellent  No     VSFTPD v2.3.4 Backdoor Command Execution
+
+
+    Interact with a module by name or index. For example info 0, use 0 or use exploit/unix/ftp/vsftpd_234_backdoor
+- type: linebreak
 - type: char
-  value: search xxx
+  value: use exploit/unix/ftp/vsftpd_234_backdoor
   prefix: msf6 >
