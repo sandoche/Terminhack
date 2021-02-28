@@ -10,11 +10,58 @@
 - type: linebreak
   prefix: true
 - type: char
-  value: 'nmap -sT -p- -Pn 192.168.10.1-254'
+  value: nmap -sT -p- -Pn $target
   prefix: true
-- type: pause
-  value: 100
+- type: line
+  value: |
+    xxx
+- type: linebreak
+  prefix: true
+- type: char
+  value: nmap --script banner $target
+  prefix: true
+- type: line
+  value: |
+    xxx
+- type: char
+  value: nmap --script vuln $target
+  prefix: true
+- type: line
+  value: |
+    xxx
+- type: linebreak
+  prefix: true
+- type: char
+  value: msfconsole
+  prefix: true
 - type: block
-  value: 'a
-  b
-  c'
+  value: '[*] Starting the Metasploit Framework console...'
+- type: pause
+  value: 2000
+- type: block
+  value: |
+    ⠀     .:okOOOkdc'           'cdkOOOko:.
+        .xOOOOOOOOOOOOc       cOOOOOOOOOOOOx.
+      :OOOOOOOOOOOOOOOk,   ,kOOOOOOOOOOOOOOO:
+      'OOOOOOOOOkkkkOOOOO: :OOOOOOOOOOOOOOOOOO'
+      oOOOOOOOO.    .oOOOOoOOOOl.    ,OOOOOOOOo
+      dOOOOOOOO.      .cOOOOOc.      ,OOOOOOOOx
+      lOOOOOOOO.         ;d;         ,OOOOOOOOl
+      .OOOOOOOO.   .;           ;    ,OOOOOOOO.
+      cOOOOOOO.   .OOc.     'oOO.   ,OOOOOOOc
+        oOOOOOO.   .OOOO.   :OOOO.   ,OOOOOOo
+        lOOOOO.   .OOOO.   :OOOO.   ,OOOOOl
+          ;OOOO'   .OOOO.   :OOOO.   ;OOOO;
+          .dOOo   .OOOOocccxOOOO.   xOOd.
+            ,kOl  .OOOOOOOOOOOOO. .dOk,
+              :kk;.OOOOOOOOOOOOO.cOk:
+                ;kOOOOOOOOOOOOOOOk:
+                  ,xOOOOOOOOOOOx,
+                    .lOOOOOOOl.
+                        ,dOd,
+                          .
+
+           =[ metasploit v6.0.28-dev                          ]
+    + -- --=[ 2097 exploits - 1128 auxiliary - 356 post       ]
+    + -- --=[ 592 payloads - 45 encoders - 10 nops            ]
+    + -- --=[ 7 evasion                                       ]
