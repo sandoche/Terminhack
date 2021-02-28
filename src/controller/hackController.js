@@ -21,4 +21,4 @@ const sendAndSleep = function (response, counter) {
   }
 }
 
-export default router
+module.exports = router
