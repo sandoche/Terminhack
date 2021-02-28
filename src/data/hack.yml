@@ -1,17 +1,16 @@
-hack:
-  - type: char
-    value: host $target
-  - type: line
-    value: 'www.sandoche.com has address 52.73.153.209
-www.sandoche.com has address 67.207.80.24
-www.sandoche.com has IPv6 address 2604:a880:400:d0::1741:7001
-www.sandoche.com has IPv6 address 2604:a880:400:d0::182c:1001'
-  - type: linebreak
-  - type: char
-    value: 'nmap -sT -p- -Pn 192.168.10.1-254'
-  - type: pause
-    value: 100
-  - type: block
-    value: 'a
-    b
-    c'
+- type: char
+  value: host $target
+- type: line
+  value: '$target has address 52.73.153.209
+$target has address 67.207.80.24
+$target has IPv6 address 2604:a880:400:d0::1741:7001
+$target has IPv6 address 2604:a880:400:d0::182c:1001'
+- type: linebreak
+- type: char
+  value: 'nmap -sT -p- -Pn 192.168.10.1-254'
+- type: pause
+  value: 100
+- type: block
+  value: 'a
+  b
+  c'
