@@ -1,10 +1,31 @@
 {
-  "name": "curl-hacker-type",
+  "name": "terminhack",
+  "description": "Impression your friends pretending to be a real hacker",
   "version": "1.0.0",
   "private": true,
   "engines": {
     "node": "14.x"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandoche/Terminhack.git"
+  },
+  "keywords": [
+    "hacking",
+    "terminal-hacking",
+    "hack-movie",
+    "hacker-movie",
+    "fake-hacking",
+    "kali",
+    "nmap",
+    "metasploit"
+  ],
+  "author": "Sandoche Adittane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sandoche/Terminhack/issues"
+  },
+  "homepage": "https://terminhack.learn.uno",
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/dev -e js,twig --exec babel-node --presets es2015,env",
