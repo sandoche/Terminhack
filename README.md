@@ -12,9 +12,10 @@ I made this little website for fun, while doing my learning month about penetrat
 
 ### 👉 [Read more](https://medium.com/learning-lab/getting-started-with-ethical-hacking-1aa6401355fa)
 
----
-_This software is made for educational & fun purpose only. Even though it shows real penetration tools in action, it does not perform any of these actions. Running any of these commands in real condition or performing hack attempt against a target without their explicit permission is illegal._
----
+<hr>
+<em>This software is made for educational purpose only. Even though it shows real penetration tools in action, it does not perform any of these actions. Running any of these commands in real condition or performing hack attempt against a target without their explicit permission is illegal.</em>
+<hr>
+
 
 ## 📖 How to use
 
