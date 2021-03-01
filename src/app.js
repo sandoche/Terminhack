@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
 const hackController = require('./controller/hackController')
+const versionController = require('./controller/versionController')
 
 const app = express()
 
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use('/version', versionController)
 app.use('/', hackController)
 
 // catch 404 and forward to error handler
