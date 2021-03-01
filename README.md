@@ -6,13 +6,15 @@
 
 👨‍💻 Impress your friends pretending to be a real hacker (works directly from the terminal)
 
-Unlike many websites, it shows real hacking tools in action and their possible outcome following a real penetration testing process. It can be used through the website or direcly from the terminal!
+Unlike many websites like Geektyper or Hackertyper, Terminhack shows real hacking tools in action and their possible outcome following a real penetration testing process. It can be used through the website or direcly from the terminal!
 
 I made this little website for fun, while doing my learning month about penetration testing.
 
 ### 👉 [Read more](https://medium.com/learning-lab/getting-started-with-ethical-hacking-1aa6401355fa)
 
+---
 _This software is made for educational & fun purpose only. Even though it shows real penetration tools in action, it does not perform any of these actions. Running any of these commands in real condition or performing hack attempt against a target without their explicit permission is illegal._
+---
 
 ## 📖 How to use
 
