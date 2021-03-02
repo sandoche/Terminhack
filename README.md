@@ -13,7 +13,8 @@ I made this little website for fun, while doing my learning month about penetrat
 ### 👉 [Read more](https://medium.com/learning-lab/getting-started-with-ethical-hacking-1aa6401355fa)
 
 <hr>
-<em>Terminhack is a web service that lets you pretend to be a hacker running real penetration testing tools. Even though it shows real penetration tools in action, it does not perform any of these actions. It has been built for educational purposes to remember the steps of penetration testing. Remember that running any of these commands for real against a target or performing hack attempts against a target without their explicit permission is illegal.</em>
+<em>Terminhack is a web service that lets you pretend to be a hacker running real penetration testing tools. Even though it shows the real commands and their response, it does not perform any of these actions for real, it is only faking it. It has been built for educational purposes to remember the steps of penetration testing. Remember that running any of these commands displayed in Terminhack, for real, against a target or performing hack attempts against a target without their explicit permission is illegal.
+</em>
 <hr>
 
 
