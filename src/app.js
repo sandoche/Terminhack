@@ -11,7 +11,7 @@ const versionController = require('./controller/versionController')
 const app = express()
 
 const corsOptions = {
-  origin: 'http://terminhack.learn.uno/',
+  origin: 'https://terminhack.learn.uno/',
   optionsSuccessStatus: 200
 }
 
