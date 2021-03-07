@@ -4,7 +4,7 @@
 [![Medium Badge](https://badgen.net/badge/icon/medium?icon=medium&label)](https://medium.com/@sandoche)
 [![Twitter: sandochee](https://img.shields.io/twitter/follow/sandochee.svg?style=social)](https://twitter.com/sandochee)
 
-👨‍💻 Impress your friends pretending to be a real hacker (works directly from the terminal)
+👨‍💻 Impress your friends by pretending to be a real hacker (works directly from the terminal)
 
 Unlike many websites like Geektyper or Hackertyper, Terminhack shows real hacking tools in action and their possible outcome following a real penetration testing process. It can be used through the website or direcly from the terminal!
 

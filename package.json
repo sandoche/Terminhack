@@ -1,6 +1,6 @@
 {
   "name": "terminhack",
-  "description": "Impress your friends pretending to be a real hacker",
+  "description": "Impress your friends by pretending to be a real hacker",
   "version": "1.0.0",
   "engines": {
     "node": "14.x"
