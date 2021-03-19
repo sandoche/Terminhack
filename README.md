@@ -26,6 +26,9 @@ Go to https://terminhack.learn.uno and click on the "Run this command from my br
 ### From the terminal
 ```sh
 curl https://terminhack.herokuapp.com/hack/sandoche.com -N
+# or use the alternative url
+# curl https://terminhack01.herokuapp.com/hack/sandoche.com -N
+
 # you can replace sandoche.com by any domain name or IP address to prentend hacking a specific target
 ```
 
