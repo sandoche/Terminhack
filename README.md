@@ -25,7 +25,7 @@ Go to https://terminhack.learn.uno and click on the "Run this command from my br
 
 ### From the terminal
 ```sh
-curl https://terminhack00.herokuapp.com/hack/sandoche.com -N
+curl https://terminhack.srv.learn.uno/hack/sandoche.com -N
 # or use the alternative url
 # curl https://terminhack.herokuapp.com/hack/sandoche.com -N
 
