@@ -72,6 +72,12 @@ npm run dev
 ```
 6. Test your script by running  `curl http://localhost:3000/<hack-id>/<target> -N` or by opening this url in your browser `http://localhost:3000/<hack-id>/<target>`
 
+### Run with docker
+```sh
+docker build . -t terminhack
+docker run -p 3000:80 terminhack
+```
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
